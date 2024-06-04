@@ -1,0 +1,32 @@
+title Renouvellement carte (membre)
+
+participant Carte
+
+participant Borne
+
+participant Serveur
+
+participant Casino
+
+participant Membre
+
+
+Membre->Casino:demande renouvellement
+Membre<-Casino:demande infos personnelles
+Membre->Casino:transmissions infos personnelles
+
+Casino->(1)Borne:demande renouvellement + transmission infos personnelles\n
+
+Borne->Serveur:demande renouvellement + transmission infos personnelles\n
+Borne<-Serveur:renvoie l'id Client correspondant
+Borne->Carte:demande de sauvegarde de l’id
+Borne->Carte:demande de génération des clés
+Borne->Carte:demande de sauvegarde de la clé privée
+Borne->Carte:demande de la clé publique 
+Borne->Serveur:envoie de la clé publique
+
+note over Serveur:enregistre clé publique +infos personnelles
+
+
+
+

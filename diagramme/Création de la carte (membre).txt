@@ -1,0 +1,32 @@
+title Création de la carte (membre)\n
+
+participant Carte
+
+participant Borne
+
+participant Serveur
+
+participant Casino
+
+participant Membre
+
+
+Membre->Casino:demande creation compte
+Membre<-Casino:demande infos personnelles
+Membre->Casino:transmissions infos personnelles
+
+Casino->(1)Borne:demande création compte + transmission infos personnelles\n
+
+Borne->Serveur:demande création compte + transmission infos personnelles\n
+Borne<-Serveur:creation compte dans BDD renvoie un idClient
+Borne->Carte:demande de sauvegarde de l’id
+Borne->Carte:demande de génération des clés
+Borne->Carte:demande de sauvegarde de la clé privée
+Borne->Carte:demande de la clé publique 
+Borne->Serveur:envoie de la clé publique
+
+note over Serveur:enregistre clé publique +infos personnelles
+
+
+
+
