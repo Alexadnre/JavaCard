@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "minecraft1155.omgserv.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "username": "minecraft_430172",
+            "database": "minecraft_430172",
+            "name": "MC2"
+        }
+    ]
+}

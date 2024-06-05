@@ -18,7 +18,7 @@ def creation_carte(ATR,Nom,Prenom,Age,num,RIB,img_URL,limite,solde,code):
     curseur.close()
     
     
-# creation_carte("123456789ABCDE","Dupont","Jean",30,"123456789","123456789","http://localhost/img/1.jpg",1000,1000,1234)
+# creation_carte("123456719ABCDE","Dupont","Jean",30,"123456789","123456789","http://localhost/img/1.jpg",1000,1000,1234)
 
 def afficher_solde(ATR):
     curseur = db.cursor()
