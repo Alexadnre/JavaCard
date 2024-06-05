@@ -72,7 +72,7 @@ def create_casino_home_page(ATR, Nom, Prenom, solde, limite, img_URL):
     root.mainloop()
 
 
-def digicode(ATR, Nom, Prenom, solde, limite, img_URL):
+def page_digicode_dépot(ATR, Nom, Prenom, solde, limite, img_URL):
     # Create the main window
     root = tk.Tk()
     root.title("Casino Home Page")
@@ -100,14 +100,21 @@ def digicode(ATR, Nom, Prenom, solde, limite, img_URL):
     firstNom_label.grid(row=0, column=1, sticky=(tk.W, tk.E), padx=5)
 
 
+    # Frame pour le solde
+    solde_frame = tk.Frame(main_frame, bg="#008500")
+    solde_frame.grid(row=2, column=2, columnspan=2, pady=10, sticky=(tk.W, tk.E))
+
+
+    solde_label = tk.Label(solde_frame, text=f"Solde: {afficher_solde(ATR):.2f} €", font=("Courrier", 20), bg="#008500", fg="white")
+    solde_label.pack()    
+    
     #intégration digicode
 
     digicode_frame = ttk.Label(main_frame, text="digicode")
-    digicode_frame.grid(row=2, column=2, columnspan=2, rowspan=3, sticky=(tk.W, tk.E))
+    digicode_frame.grid(row=3, column=2, columnspan=2, rowspan=2, sticky=(tk.W, tk.E))
 
-    # Créer le pavé numérique dans le digicode_frame
-    create_digicode(digicode_frame)
-
+    create_digicode(digicode_frame,"dépôt",ATR)
+    
 
     # Configure column and row weights for proper resizing
     for i in range(6):
@@ -122,7 +129,7 @@ def digicode(ATR, Nom, Prenom, solde, limite, img_URL):
 
 ATR,Nom,Prenom,Age,num,RIB,img_URL,limite,solde,code=recuperation_donnees("123456789ABCDE")
 # create_casino_home_page("123456789ABCDE", Nom, Prenom, solde, limite, img_URL)
-digicode("123456789ABCDE", Nom, Prenom, solde, limite, img_URL)
+page_digicode_dépot("123456789ABCDE", Nom, Prenom, solde, limite, img_URL)
 
 
 #test

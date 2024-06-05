@@ -45,14 +45,14 @@ def recharge_solde(ATR,montant):
     curseur = db.cursor()
     curseur.execute("SELECT solde FROM membre WHERE ATR = %s",(ATR,))
     solde = curseur.fetchone()[0]
-    curseur.execute("UPDATE membre SET solde = %s WHERE ATR = %s",(solde+montant,ATR))
+    curseur.execute("UPDATE membre SET solde = %s WHERE ATR = %s",(solde+float(montant),ATR))
     db.commit()
     curseur.close()
 
 # recharge_solde("123456789ABCDE",100)
 # print(mise_argent(100,"Pile","123456789ABCDE"))
 
-def retire_argent(montant,ATR):
+def retire_argent(ATR,montant):
     if afficher_solde(ATR)<montant:
         return -1
     recharge_solde(ATR,-montant)
