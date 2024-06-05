@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 from Fonction_database import * 
-
 path_img = "C:\\xampp\\htdocs\\img\\ressources"
 
 # Fonction pour confirmer le montant et l'ajouter au solde
@@ -37,8 +36,6 @@ def create_digicode(parent_frame,type_opération,ATR):
             recharge_solde(ATR,amount)
         elif type_opération == "limite":
             choisir_limite(ATR,amount)
-        print(amount)  # Ici, vous pouvez ajouter le code pour enregistrer l'opération ou interagir avec la base de données
-        return amount   
 
     # Fonction pour retirer le dernier chiffre saisi
     def remove_digit():
